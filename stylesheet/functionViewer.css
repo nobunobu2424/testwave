@@ -1,0 +1,141 @@
+/*  CSSの初期化（ウェブブラウザ固有の設定を初期化するため） */
+body, h1, h2, h3, h4, h5, h6, div, p, span, img, ul, ol, li, table, tr, th, td, a{
+	font-family : "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;  /* フォントの指定 */
+	margin : 0px;                  /* マージン */
+	padding : 0px;                 /* パディング */
+	border : 0px;                  /* 枠線 */
+	line-height : 150%;             /* 行の高さ */
+	font-size : small;             /* フォントサイズ */
+	font-weight : normal;          /* フォントウェイト */
+	color : black;                 /* フォントカラー */
+	background-color : transparent; /* 背景色 */
+}
+
+/* a要素の初期化 */
+a {
+	font-weight : bold;            /* フォントウェイト */
+	text-decoration : underline;   /* テキストデコレーション */
+}
+
+
+/* br要素（回りこみ解除） */
+br.clear{
+	line-height: 0; /* 行の高さ */
+	clear: both;    /* 回り込み解除 */
+}
+
+/* タブ切り替えインターフェースの要素 */
+div#tabs{
+	width : 800px;      /* 横幅 */
+	margin : 0px auto;  /* マージン：左右を「auto」（ウェブブラウザの中心に配置するため） ; */
+}
+
+/* タブ切り替えコンテンツ領域 */
+div#tabs div.inner{
+	width : 780px;            /* 横幅 */
+	height : 500px;           /* 縦幅 */
+	margin : 5px;             /* マージン */
+	padding : 5px;            /* パディング */
+	background-color : white; /* 背景色 */
+}
+
+/* キャンバスフレーム領域 */
+div#tabs div#canvas-frame{
+	width : 500px;              /* 横幅 */
+	height : 500px;             /* 縦幅 */
+	background-color : white;   /* 背景色 */
+	float : left;               /* 回り込み：左 */
+}
+
+/* コントローラー領域 */
+div#tabs div.inner div#controller{
+	width : 270px;              /* 横幅 */
+	height : 490px;             /* 縦幅 */
+	padding : 5px;              /* パディング */
+	float : right;              /* 回り込み：右 */
+	background-color : white;   /* 背景色 */
+}
+
+/* コントローラー領域内のh2要素 */
+div#tabs div.inner div#controller h2{
+	margin : 0px 0px 0px 0px;    /* マージン */
+	padding : 2px 0px 2px 0px;   /* パディング */
+	font-weight : bold;          /* フォントウェイト */
+	color: white;                /* フォントカラー */
+	background-color : gray;     /* 背景色 */
+}
+/* コントローラー領域内のh3要素 */
+div#tabs div.inner div#controller h3{
+	padding: 2px 0px 0px 5px;     /* パディング */
+	font-weight : bold;           /* フォントウェイト */
+	line-height: 1.0em;           /* 行の高さ */
+	color: #333333;               /* フォントカラー */
+	background-color : white;     /* 背景色 */
+	border-left: 15px solid gray; /* 枠線の指定 */
+}
+
+/* コントローラー領域内のtable要素 */
+div#tabs div.inner div#controller table{
+	width : 270px;               /* 横幅 */
+	border-collapse : collapse;  /* 枠線の折りたたみ */
+	background-color : white;    /* 背景色 */
+	margin : 5px 0px 10px 0px;   /* マージン */
+}
+
+/* コントローラー領域内のtd要素 */
+div#tabs div.inner div#controller table td{
+	padding : 2px 5px;       /* パディング */
+	border : 1px solid gray; /* 枠線の指定 */
+}
+
+/* コントローラー領域内のclass名「slider」のdiv要素 */
+div#tabs div.inner div#controller div.slider{
+	width : 160px; /* 横幅 */
+}
+
+/* コントローラー領域内のclass名「number」のinput要素 */
+div#tabs div.inner div#controller input.number{
+	width : 30px; /* 横幅 */
+}
+
+/* テキストエリアと凡例のフレーム */
+div#tabs div.inner div#controller div#function_legend{
+	margin : 5px 0px 5px 0px; /* マージン */
+}
+
+/* 関数入力用テキストエリア */
+div#tabs div.inner div#controller textarea#text_function{
+	width :186px;    /* 横幅 */
+	height : 100px;  /* 縦幅 */
+	float : left;    /* 回り込み：左 */
+}
+
+/* 凡例用表要素 */
+div#tabs div.inner div#controller table#legend{
+	width : 76px;   /* 横幅 */
+	height : 100px; /* 縦幅 */
+	margin : 0px;   /* マージン */
+	padding : 0px;  /* パディング */
+	float : right;  /* 回り込み：右 */
+}
+
+/* 凡例用表のセルヘッダー要素 */
+div#tabs div.inner div#controller table#legend th{
+	padding : 2px 0px;       /* パディング */
+	font-size : x-small;     /* フォントサイズ */
+	font-weight : bold;      /* フォントウェイト */
+	border : 1px solid gray; /* 枠線の指定 */
+}
+
+/* 凡例用表のセルデータ要素 */
+div#tabs div.inner div#controller table#legend td{
+	padding : 0px; /* パディング */
+}
+
+/* グラフ描画ボタン要素 */
+input#graphPlot{
+	width : 90px;  /* 横幅 */
+	height : 40px; /* 縦幅 */
+}
+
+

@@ -1,0 +1,50 @@
+/*  CSSの初期化（ウェブブラウザ固有の設定を初期化するため） */
+body, h1, h2, h3, h4, h5, h6, div, p, span, img, ul, ol, li, table, tr, th, td, a{
+	font-family : "メイリオ", Meiryo, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", sans-serif;  /* フォントの指定 */
+	margin : 0px;                  /* マージン */
+	padding : 0px;                 /* パディング */
+	border : 0px;                  /* 枠線 */
+	line-height : 150%;             /* 行の高さ */
+	font-size : small;             /* フォントサイズ */
+	font-weight : normal;          /* フォントウェイト */
+	color : black;                 /* フォントカラー */
+	background-color : transparent; /* 背景色 */
+}
+
+/* a要素の初期化 */
+a {
+	font-weight : bold;            /* フォントウェイト */
+	text-decoration : underline;   /* テキストデコレーション */
+}
+/* タブ切り替えインターフェースの要素 */
+div#tabs{
+	width : 800px;      /* 横幅 */
+	margin : auto auto;  /* マージン：左右を「auto」（ウェブブラウザの中心に配置するため） ; */
+}
+/* タブ切り替えコンテンツ領域 */
+div#tabs div.inner{
+	width : 780px;            /* 横幅 */
+	height : 500px;           /* 縦幅 */
+	margin : 5px;             /* マージン */
+	padding : 5px;            /* パディング */
+	background-color : white; /* 背景色 */
+}
+
+/* キャンバスフレーム領域 */
+div#tabs div#canvas-frame{
+	width : 500px;              /* 横幅 */
+	height : 500px;             /* 縦幅 */
+	float : left;               /* 回り込み：左 */
+	background-color : #DDDDDD; /* 背景色 */
+}
+
+/* コントローラー領域 */
+div#tabs div.inner div#controller{
+	width : 270px;              /* 横幅 */
+	height : 490px;             /* 縦幅 */
+	padding : 5px;              /* パディング */
+	float : right;              /* 回り込み：右 */
+	text-align : left;          /* 水平方向の揃え方：左 */
+	background-color : #EEEEEE; /* 背景色 */
+}
+
