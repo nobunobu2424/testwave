@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Three.js の基本形(2) 立方体の描画</title>
+<script src="../javascript/three_r55.js"></script>      <!-- Three.js用ライブラリ -->
+<style>
+div#canvas-frame{
+	width: 512px;  /* 横幅 */
+	height: 512px; /* 縦幅 */
+}
+</style>
+<script>
+	////////////////////////////////////////////////////////////////////
+	// windowイベントの定義
+	////////////////////////////////////////////////////////////////////
+	//HTML文書読み込み完了後に実行するイベントの定義
+	window.addEventListener("load", function () {
+		resizeTo(546, 567);
+		threeStart(); //Three.jsのスタート関数の実行
+	});
+	////////////////////////////////////////////////////////////////////
+	// Three.jsスタート関数の定義
+	////////////////////////////////////////////////////////////////////
+	function threeStart() {
+		initThree();  //Three.js初期化関数の実行
+		initCamera(); //カメラ初期化関数の実行
+		initLight();  //光源初期化関数の実行
+		initObject(); //オブジェクト初期化関数の実行
+		draw();       //描画実行関数の実行
+	}
+	////////////////////////////////////////////////////////////////////
+	// Three.js初期化関数の定義
+	////////////////////////////////////////////////////////////////////
+	//グローバル変数の宣言
+	var renderer,    //レンダラーオブジェクト
+	    scene,       //シーンオブジェクト
+	    canvasFrame; //キャンバスフレームのDOM要素
+	function initThree() {
+		//キャンバスフレームDOM要素の取得
+		canvasFrame = document.getElementById('canvas-frame');
+		//レンダラーオブジェクトの生成
+		renderer = new THREE.WebGLRenderer({ antialias: true });
+		if (!renderer) alert('Three.js の初期化に失敗しました');
+		//レンダラーのサイズの設定
+		renderer.setSize(canvasFrame.clientWidth, canvasFrame.clientHeight);
+		//キャンバスフレームDOM要素にcanvas要素を追加
+		canvasFrame.appendChild(renderer.domElement);
+
+		//レンダラークリアーカラーの設定
+		renderer.setClearColorHex(0xEEEEEE, 1.0);
+
+		//シーンオブジェクトの生成
+		scene = new THREE.Scene();
+	}
+	////////////////////////////////////////////////////////////////////
+	// カメラ初期化関数の定義
+	////////////////////////////////////////////////////////////////////
+	//グローバル変数の宣言
+	var camera;    //カメラオブジェクト
+	function initCamera() {
+		//カメラオブジェクトの生成
+		camera = new THREE.PerspectiveCamera(45, canvasFrame.clientWidth / canvasFrame.clientHeight, 1, 10000);
+		//カメラの位置の設定
+		camera.position.set(30, 30, 30);
+		//カメラの上ベクトルの設定
+		camera.up.set(0, 0, 1);
+		//カメラの中心位置ベクトルの設定
+		camera.lookAt({ x: 0, y: 0, z: 0 });
+	}
+	////////////////////////////////////////////////////////////////////
+	// 光源初期化関数の定義
+	////////////////////////////////////////////////////////////////////
+	//グローバル変数の宣言
+	var directionalLight;   //平行光源オブジェクト
+	function initLight() {
+		//平行光源オブジェクトの生成
+		directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1.0, 0);
+		//平行光源オブジェクトの位置の設定
+		directionalLight.position.set(50, 20, 100);
+		//平行光源オブジェクトのシーンへの追加
+		scene.add(directionalLight);
+	}
+	////////////////////////////////////////////////////////////////////
+	// オブジェクト初期化関数の定義
+	////////////////////////////////////////////////////////////////////
+	//グローバル変数の宣言
+	var axis, //軸オブジェクト
+			cube; //立方体オブジェクト
+	function initObject() {
+		//軸オブジェクトの生成
+		axis = new THREE.AxisHelper(50);
+		//軸オブジェクトのシーンへの追加
+		scene.add(axis);
+		//軸オブジェクトの位置座標を設定
+		axis.position.set(0, 0, 0);
+
+		//形状オブジェクトの宣言と生成
+		var geometry = new THREE.CubeGeometry(20, 20, 20);
+		//材質オブジェクトの宣言と生成F
+		var material = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
+		//立方体オブジェクトの生成
+		cube = new THREE.Mesh(geometry, material);
+		//立方体オブジェクトのシーンへの追加
+		scene.add(cube);
+		//立方体オブジェクトの位置座標を設定
+		cube.position.set(-10, 0, 0);
+	}
+
+	////////////////////////////////////////////////////////////////////
+	// 描画関数の定義
+	////////////////////////////////////////////////////////////////////
+	function draw() {
+		//クリアーカラーで初期化
+		renderer.clear();
+		//レンダリング
+		renderer.render(scene, camera);
+	}
+</script>
+</head>
+<body>
+	<div id="canvas-frame"></div><!-- canvas要素を配置するdiv要素 -->
+</body>
+</html>
